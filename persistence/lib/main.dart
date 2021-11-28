@@ -9,7 +9,7 @@ import 'package:persistence/src/screens/counter/counter_screen.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Config persistence support for the app
+  // Configure persistence support for the app
   WrenchStore.config(
     isPersistent: true,
     storeName: 'mustang-persistence',
