@@ -46,9 +46,9 @@ app.*.map.json
 /android/app/release
 
 # Mustang
-# generated files
 *.g.dart
 *.model.dart
 *.state.dart
 *.service.dart
-lib/**/models/serializers.dart
+**/serializers.dart
+**/serializers.g.dart

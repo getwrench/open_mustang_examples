@@ -4,15 +4,15 @@ import 'package:mustang_core/mustang_core.dart';
 class $Counter {
   @InitField(false)
   @SerializeField(false)
-  bool? busy;
+  late bool busy;
 
   @InitField('')
   @SerializeField(false)
-  String? errorMsg;
+  late String errorMsg;
 
   @InitField(false)
-  bool? clearScreenCache;
+  late bool clearScreenCache;
 
   @InitField(0)
-  int? value;
+  late int value;
 }

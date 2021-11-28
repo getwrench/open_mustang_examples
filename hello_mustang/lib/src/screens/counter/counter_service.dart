@@ -41,7 +41,7 @@ class CounterService {
 
   void increment() {
     Counter counter = WrenchStore.get<Counter>() ?? Counter();
-    counter = counter.rebuild((b) => b.value = (b.value ?? 0) + 1);
+    counter = counter.rebuild((b) => b..value = (b.value ?? 0) + 1);
     updateState1(counter);
   }
 }

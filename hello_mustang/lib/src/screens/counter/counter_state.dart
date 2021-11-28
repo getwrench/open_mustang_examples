@@ -3,6 +3,6 @@ import 'package:hello_mustang/src/models/counter.dart';
 
 @screenState 
 class $CounterState {
-  $Counter? counter;
+  late $Counter counter;
 }
     

@@ -21,12 +21,12 @@ class CounterScreen extends StatelessWidget {
             (_) => CounterService().memoizedGetData(),
           );
 
-          if (state?.counter?.busy ?? false) {
+          if (state?.counter.busy ?? false) {
             return const CircularProgressIndicator();
           }
 
-          if (state?.counter?.errorMsg.isNotEmpty ?? false) {
-            Text(state?.counter?.errorMsg ?? 'Unknown error');
+          if (state?.counter.errorMsg.isNotEmpty ?? false) {
+            Text(state?.counter.errorMsg ?? 'Unknown error');
           }
 
           return _body(state, context);
@@ -36,7 +36,7 @@ class CounterScreen extends StatelessWidget {
   }
 
   Widget _body(CounterState? state, BuildContext context) {
-    int counter = state?.counter?.value ?? 0;
+    int counter = state?.counter.value ?? 0;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Counter'),
