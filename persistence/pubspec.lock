@@ -317,8 +317,8 @@ packages:
     description:
       path: mustang_codegen
       ref: master
-      resolved-ref: c343a95d0eba41638a654de47a733bc74a3a58f0
-      url: "https://github.com/rajvengala/open_mustang.git"
+      resolved-ref: "59404b1a64bfc9d80caa964f548705c340f400d9"
+      url: "https://github.com/getwrench/open_mustang.git"
     source: git
     version: "1.0.0"
   mustang_core:
@@ -326,8 +326,8 @@ packages:
     description:
       path: mustang_core
       ref: master
-      resolved-ref: c343a95d0eba41638a654de47a733bc74a3a58f0
-      url: "https://github.com/rajvengala/open_mustang.git"
+      resolved-ref: "59404b1a64bfc9d80caa964f548705c340f400d9"
+      url: "https://github.com/getwrench/open_mustang.git"
     source: git
     version: "1.0.0"
   package_config:
