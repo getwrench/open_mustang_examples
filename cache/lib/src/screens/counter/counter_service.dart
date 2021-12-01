@@ -60,4 +60,8 @@ class CounterService {
     );
     updateState();
   }
+
+  Future<void> clearCachedState() async {
+    await WrenchCache.deleteObjects(cacheKey);
+  }
 }

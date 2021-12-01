@@ -276,7 +276,7 @@ packages:
       name: json_annotation
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.3.0"
+    version: "4.4.0"
   lints:
     dependency: transitive
     description:
@@ -318,14 +318,14 @@ packages:
       name: mustang_codegen
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.4"
+    version: "1.0.5"
   mustang_core:
     dependency: "direct main"
     description:
       name: mustang_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.2"
+    version: "1.0.4"
   package_config:
     dependency: transitive
     description:

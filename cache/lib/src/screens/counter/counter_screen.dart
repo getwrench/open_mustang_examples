@@ -58,8 +58,12 @@ class CounterScreen extends StatelessWidget {
               child: const Text('Cache current value'),
             ),
             ElevatedButton(
-              onPressed: () => _restoreState(context),
+              onPressed: () => _restoreState(),
               child: const Text('Restore cached value'),
+            ),
+            ElevatedButton(
+              onPressed: () => _clearCache(),
+              child: const Text('Clear cached value'),
             ),
           ],
         ),
@@ -74,7 +78,11 @@ class CounterScreen extends StatelessWidget {
     );
   }
 
-  Future<void> _restoreState(BuildContext context) async {
+  Future<void> _restoreState() async {
     await CounterService().restoreValueFromCache();
+  }
+
+  Future<void> _clearCache() async {
+    await CounterService().clearCachedState();
   }
 }
