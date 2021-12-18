@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:cache/src/models/serializers.dart' as app_serializer;
 import 'package:cache/src/screens/counter/counter_screen.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mustang_core/mustang_core.dart';
 import 'package:path_provider/path_provider.dart';
@@ -15,8 +16,12 @@ void main() async {
     isPersistent: true,
     storeName: 'mustang-cache1',
   );
-  Directory dir = await getApplicationDocumentsDirectory();
-  await WrenchStore.initPersistence(dir.path);
+
+  Directory? dir;
+  if (!kIsWeb) {
+    dir = await getApplicationDocumentsDirectory();
+  }
+  await WrenchStore.initPersistence(dir?.path);
 
   // Restore persisted state before the app starts
   await WrenchStore.restoreState(
