@@ -1,7 +1,7 @@
 import 'package:mustang_core/mustang_core.dart';
 
 @appModel
-class $Counter {
+abstract class $Counter {
   @InitField(false)
   @SerializeField(false)
   late bool busy;

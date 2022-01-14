@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:mustang_core/mustang_widgets.dart';
 
-import 'counter_service.dart';
+import 'counter_service.service.dart';
 import 'counter_state.state.dart';
 
 class CounterScreen extends StatelessWidget {

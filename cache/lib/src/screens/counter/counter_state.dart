@@ -1,8 +1,7 @@
-import 'package:mustang_core/mustang_core.dart';
 import 'package:cache/src/models/counter.dart';
+import 'package:mustang_core/mustang_core.dart';
 
-@screenState 
-class $CounterState {
+@screenState
+abstract class $CounterState {
   late $Counter counter;
 }
-    

@@ -6,7 +6,7 @@ import 'counter_service.service.dart';
 import 'counter_state.dart';
 
 @ScreenService(screenState: $CounterState)
-class CounterService {
+abstract class $CounterService {
   final String cacheKey = 'cache-example';
 
   Future<void> memoizedGetData() {

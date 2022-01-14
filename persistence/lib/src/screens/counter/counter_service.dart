@@ -5,7 +5,7 @@ import 'counter_service.service.dart';
 import 'counter_state.dart';
 
 @ScreenService(screenState: $CounterState)
-class CounterService {
+abstract class $CounterService {
   Future<void> memoizedGetData() {
     Counter counter = WrenchStore.get<Counter>() ?? Counter();
     if (counter.clearScreenCache) {
