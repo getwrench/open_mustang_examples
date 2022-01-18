@@ -1,11 +1,12 @@
 import 'package:mustang_core/mustang_core.dart';
+import 'package:persistence/src/aspects/firebase_exception.aspect.dart';
 import 'package:persistence/src/models/counter.model.dart';
 
 import 'counter_service.service.dart';
 import 'counter_state.dart';
 
 @ScreenService(screenState: $CounterState)
-class CounterService {
+abstract class $CounterService {
   Future<void> memoizedGetData() {
     Counter counter = WrenchStore.get<Counter>() ?? Counter();
     if (counter.clearScreenCache) {
@@ -18,6 +19,7 @@ class CounterService {
     return memoizeScreen(getData);
   }
 
+  @firebaseException
   Future<void> getData({
     bool showBusy = true,
   }) async {
