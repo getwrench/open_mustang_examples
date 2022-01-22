@@ -1,4 +1,6 @@
 import 'package:mustang_core/mustang_core.dart';
+import 'package:persistence/src/aspects/firebase_exception.aspect.dart';
+import 'package:persistence/src/aspects/temp.aspect.dart';
 import 'package:persistence/src/models/counter.model.dart';
 
 import 'counter_service.service.dart';
@@ -18,6 +20,8 @@ abstract class $CounterService {
     return memoizeScreen(getData);
   }
 
+  @firebaseException
+  @temp
   Future<void> getData({
     bool showBusy = true,
   }) async {
@@ -39,6 +43,8 @@ abstract class $CounterService {
     clearMemoizedScreen(reload: reload);
   }
 
+  @firebaseException
+  @temp
   void incrementPersistedValue() {
     Counter counter = WrenchStore.get<Counter>() ?? Counter();
     counter = counter.rebuild((b) => b..value = (b.value ?? 0) + 1);
