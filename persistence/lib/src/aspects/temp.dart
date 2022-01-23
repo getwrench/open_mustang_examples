@@ -6,6 +6,7 @@ abstract class $Temp {
   Future<void> smartDesign(Function sourceMethod) async {
     print('temp -> before');
     await sourceMethod();
+    print('temp -> after');
   }
 
   @invokeOnSync
