@@ -2,10 +2,15 @@ import 'package:mustang_core/mustang_core.dart';
 
 @aspect
 abstract class $FirebaseException {
-  @invoke
+  @invokeOnAsync
   Future<void> aroundHook(Function sourceMethod) async {
-    print('before');
+    print('firebase -> before');
     await sourceMethod();
-    print('after');
+    print('firebase -> after');
+  }
+
+  @invokeOnSync
+  void doSomeWord(Function sourceMethod) {
+
   }
 }
