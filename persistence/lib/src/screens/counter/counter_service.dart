@@ -36,7 +36,9 @@ abstract class $CounterService {
       );
       updateState1(counter);
     }
+    print('getData start');
     await Future.delayed(const Duration(seconds: 5));
+    print('getData end');
     // Add API calls here, if any
     counter = counter.rebuild((b) => b..busy = false);
     updateState1(counter);
