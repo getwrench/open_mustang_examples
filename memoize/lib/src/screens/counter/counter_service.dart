@@ -1,0 +1,37 @@
+import 'package:memoize/src/models/counter.model.dart';
+import 'package:mustang_core/mustang_core.dart';
+
+import 'counter_service.service.dart';
+import 'counter_state.dart';
+
+@ScreenService(screenState: $CounterState)
+abstract class $CounterService {
+  Future<void> memoizedGetInitData() {
+    return memoizeScreen(getInitData);
+  }
+
+  Future<void> getInitData() async {
+    Counter counter = WrenchStore.get<Counter>() ?? Counter();
+    counter = counter.rebuild(
+      (b) => b..busy = true,
+    );
+    updateState1(counter);
+
+    // Add API calls here, if any
+    await Future.delayed(const Duration(seconds: 4));
+    counter = counter.rebuild(
+      (b) => b..busy = false,
+    );
+    updateState1(counter);
+  }
+
+  void clearCacheAndReload({bool reload = true}) {
+    clearMemoizedScreen(reload: reload);
+  }
+
+  void increment() {
+    Counter counter = WrenchStore.get<Counter>() ?? Counter();
+    counter = counter.rebuild((b) => b..value = (b.value ?? 0) + 1);
+    updateState1(counter);
+  }
+}
