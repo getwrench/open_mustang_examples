@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:mustang_core/mustang_core.dart';
 import 'package:persistence/src/aspects/firebase_exception.aspect.dart';
 import 'package:persistence/src/aspects/temp.aspect.dart';
@@ -34,6 +36,9 @@ abstract class $CounterService {
       );
       updateState1(counter);
     }
+    print('getData start');
+    await Future.delayed(const Duration(seconds: 5));
+    print('getData end');
     // Add API calls here, if any
     counter = counter.rebuild((b) => b..busy = false);
     updateState1(counter);

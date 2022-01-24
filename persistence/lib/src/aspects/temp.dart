@@ -2,9 +2,15 @@ import 'package:mustang_core/mustang_core.dart';
 
 @aspect
 abstract class $Temp {
-  @invoke
+  @invokeOnAsync
   Future<void> smartDesign(Function sourceMethod) async {
-    print('after validation');
+    print('temp -> before');
     await sourceMethod();
+    print('temp -> after');
+  }
+
+  @invokeOnSync
+  void doSomethingInTemp(Function sourceMethod) {
+
   }
 }
