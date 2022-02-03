@@ -10,10 +10,15 @@ import 'package:aspects/src/aspects/on_exception_aspect.dart';
 import 'dart:core';
 
 class $$OnExceptionAspect extends $OnExceptionAspect {
-  void invoke(Object e, StackTrace stackTrace) {
+  Future<void> invokeOnAsync(Function e) async {
     super.run(
       e,
-      stackTrace,
+    );
+  }
+
+  void invoke(Function e) {
+    super.run(
+      e,
     );
   }
 }

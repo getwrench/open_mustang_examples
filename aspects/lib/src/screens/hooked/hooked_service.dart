@@ -1,7 +1,6 @@
 import 'package:aspects/src/aspects/after_aspect.aspect.dart';
 import 'package:aspects/src/aspects/around_aspect.aspect.dart';
 import 'package:aspects/src/aspects/firebase_aspect.aspect.dart';
-import 'package:aspects/src/aspects/on_exception_aspect.aspect.dart';
 import 'package:mustang_core/mustang_core.dart';
 import 'package:aspects/src/models/hooked.model.dart';
 
@@ -25,7 +24,6 @@ abstract class $HookedService {
   @Before([firebaseAspect])
   @Around(aroundAspect)
   @After([afterAspect])
-  @OnException(onExceptionAspect)
   Future<void> getData({
     bool showBusy = true,
   }) async {
@@ -48,8 +46,8 @@ abstract class $HookedService {
   }
 
   @Before([firebaseAspect])
+  @Around(aroundAspect)
   @After([afterAspect])
-  @OnException(onExceptionAspect)
   void sampleMethod() {
     print('normal method');
   }

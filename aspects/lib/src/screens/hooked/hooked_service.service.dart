@@ -15,7 +15,6 @@ import 'dart:core';
 import 'package:aspects/src/aspects/firebase_aspect.aspect.dart';
 import 'package:aspects/src/aspects/after_aspect.aspect.dart';
 import 'package:aspects/src/aspects/around_aspect.aspect.dart';
-import 'package:aspects/src/aspects/on_exception_aspect.aspect.dart';
 import 'hooked_state.state.dart';
 
 class _$HookedStateCache<T> {
@@ -33,30 +32,22 @@ class _$HookedStateCache<T> {
 class HookedService extends $HookedService {
   @override
   Future<void> getData({bool showBusy = true}) async {
-    try {
-      $$FirebaseAspect().invoke();
+    $$FirebaseAspect().invoke();
 
-      await $$AroundAspect().invoke(() async {
-        await super.getData(
-          showBusy: showBusy,
-        );
-      });
-      $$AfterAspect().invoke();
-    } catch (e, stackTrace) {
-      $$OnExceptionAspect().invoke(e, stackTrace);
-    }
+    $$AroundAspect().invokeOnAsync(() async {
+      await super.getData(
+        showBusy: showBusy,
+      );
+    });
+    $$AfterAspect().invoke();
   }
 
   @override
   void sampleMethod() {
-    try {
-      $$FirebaseAspect().invoke();
+    $$FirebaseAspect().invoke();
 
-      super.sampleMethod();
-      $$AfterAspect().invoke();
-    } catch (e, stackTrace) {
-      $$OnExceptionAspect().invoke(e, stackTrace);
-    }
+    $$AroundAspect().invoke(() => super.sampleMethod());
+    $$AfterAspect().invoke();
   }
 }
 
