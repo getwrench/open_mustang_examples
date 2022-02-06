@@ -1,6 +1,6 @@
 import 'package:mustang_core/mustang_core.dart';
 
-@appModel 
+@appModel
 abstract class $Hooked {
   @InitField(false)
   @SerializeField(false)

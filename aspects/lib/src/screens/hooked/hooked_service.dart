@@ -1,8 +1,8 @@
 import 'package:aspects/src/aspects/after_aspect.aspect.dart';
 import 'package:aspects/src/aspects/around_aspect.aspect.dart';
 import 'package:aspects/src/aspects/firebase_aspect.aspect.dart';
-import 'package:mustang_core/mustang_core.dart';
 import 'package:aspects/src/models/hooked.model.dart';
+import 'package:mustang_core/mustang_core.dart';
 
 import 'hooked_service.service.dart';
 import 'hooked_state.dart';
@@ -45,9 +45,6 @@ abstract class $HookedService {
     updateState1(hooked);
   }
 
-  @Before([firebaseAspect])
-  @Around(aroundAspect)
-  @After([afterAspect])
   void sampleMethod() {
     print('normal method');
   }

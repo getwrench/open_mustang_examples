@@ -10,20 +10,14 @@ import 'package:aspects/src/aspects/around_aspect.dart';
 import 'dart:core';
 
 class $$AroundAspect extends $AroundAspect {
-  Future<void> invokeOnAsync(Function sourceMethod) async {
+  Future<void> invoke(Function sourceMethod) async {
     await super.run(
-      sourceMethod,
-    );
-  }
-
-  void invoke(Function sourceMethod) {
-    super.run(
       sourceMethod,
     );
   }
 }
 
-class AroundAspect implements AspectBuilder {
+class AroundAspect implements AspectImpl {
   const AroundAspect();
 }
 

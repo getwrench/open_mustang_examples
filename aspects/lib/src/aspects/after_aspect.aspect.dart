@@ -8,12 +8,12 @@ import 'package:mustang_core/mustang_core.dart';
 import 'package:aspects/src/aspects/after_aspect.dart';
 
 class $$AfterAspect extends $AfterAspect {
-  void invoke() {
-    super.run();
+  Future<void> invoke() async {
+    await super.run();
   }
 }
 
-class AfterAspect implements AspectBuilder {
+class AfterAspect implements AspectImpl {
   const AfterAspect();
 }
 

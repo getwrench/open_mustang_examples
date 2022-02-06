@@ -47,11 +47,11 @@ class HookedScreen extends StatelessWidget {
             children: [
               ElevatedButton(
                 onPressed: HookedService().getData,
-                child: const Text('call async getData'),
+                child: const Text('Annotated method'),
               ),
               ElevatedButton(
                 onPressed: _syncCaller,
-                child: const Text('call sync method'),
+                child: const Text('normal method'),
               ),
             ],
           ),
@@ -62,6 +62,5 @@ class HookedScreen extends StatelessWidget {
 
   void _syncCaller() {
     HookedService().sampleMethod();
-    print('all complete');
   }
 }
