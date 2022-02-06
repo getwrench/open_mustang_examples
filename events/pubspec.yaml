@@ -49,12 +49,6 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^1.0.0
 
-dependency_overrides:
-  mustang_codegen:
-    path: c:\wrench\repos\open_mustang\mustang_codegen
-  mustang_core:
-    path: c:\wrench\repos\open_mustang\mustang_core
-
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 

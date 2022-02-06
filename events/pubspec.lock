@@ -315,17 +315,17 @@ packages:
   mustang_codegen:
     dependency: "direct dev"
     description:
-      path: "c:\\wrench\\repos\\open_mustang\\mustang_codegen"
-      relative: false
-    source: path
-    version: "1.0.11"
+      name: mustang_codegen
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.12"
   mustang_core:
     dependency: "direct main"
     description:
-      path: "c:\\wrench\\repos\\open_mustang\\mustang_core"
-      relative: false
-    source: path
-    version: "1.0.4"
+      name: mustang_core
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.5"
   package_config:
     dependency: transitive
     description:
