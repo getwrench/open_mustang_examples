@@ -30,24 +30,29 @@ class _$HookedStateCache<T> {
 }
 
 class HookedService extends $HookedService {
+  static String _serviceName = '';
+
+  HookedService() {
+    if (_serviceName != 'HookedService') {
+      _serviceName = 'HookedService';
+      subscribeToEvent();
+    }
+  }
+
+  Future<void> subscribeToEvent() async {
+    EventStream.reset();
+  }
+
   @override
   Future<void> getData({bool showBusy = true}) async {
-    $$FirebaseAspect().invoke();
+    await $$FirebaseAspect().invoke();
 
-    $$AroundAspect().invokeOnAsync(() async {
+    await $$AroundAspect().invoke(() async {
       await super.getData(
         showBusy: showBusy,
       );
     });
-    $$AfterAspect().invoke();
-  }
-
-  @override
-  void sampleMethod() {
-    $$FirebaseAspect().invoke();
-
-    $$AroundAspect().invoke(() => super.sampleMethod());
-    $$AfterAspect().invoke();
+    await $$AfterAspect().invoke();
   }
 }
 
