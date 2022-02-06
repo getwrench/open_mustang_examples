@@ -1,5 +1,6 @@
 import 'package:events/src/screens/counter/counter_screen.dart';
-import 'package:events/src/services/increment_service.dart';
+import 'package:events/src/screens/counter2/counter2_screen.dart';
+import 'package:events/src/shared_services/increment_service.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -27,6 +28,10 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
+      routes: <String, WidgetBuilder>{
+        '/counter1': (BuildContext _) => const CounterScreen(),
+        '/counter2': (BuildContext _) => const Counter2Screen(),
+      },
       home: const CounterScreen(),
     );
   }

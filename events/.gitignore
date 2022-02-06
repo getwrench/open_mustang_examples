@@ -44,3 +44,12 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+
+# Mustang
+*.g.dart
+*.model.dart
+*.state.dart
+*.service.dart
+**/serializers.dart
+**/serializers.g.dart

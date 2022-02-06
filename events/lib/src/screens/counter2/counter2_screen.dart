@@ -2,23 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:mustang_core/mustang_widgets.dart';
 
-import 'counter_service.service.dart';
-import 'counter_state.state.dart';
+import 'counter2_service.service.dart';
+import 'counter2_state.state.dart';
 
-class CounterScreen extends StatelessWidget {
-  const CounterScreen({
+class Counter2Screen extends StatelessWidget {
+  const Counter2Screen({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return StateProvider<CounterState>(
-      state: CounterState(),
+    return StateProvider<Counter2State>(
+      state: Counter2State(),
       child: Builder(
         builder: (BuildContext context) {
-          CounterState? state = StateConsumer<CounterState>().of(context);
+          Counter2State? state = StateConsumer<Counter2State>().of(context);
           SchedulerBinding.instance?.addPostFrameCallback(
-            (_) => CounterService().getData(),
+            (_) => Counter2Service().getData(),
           );
 
           return _body(state, context);
@@ -27,25 +27,25 @@ class CounterScreen extends StatelessWidget {
     );
   }
 
-  Widget _body(CounterState? state, BuildContext context) {
+  Widget _body(Counter2State? state, BuildContext context) {
     int counter = state?.timerEvent.value ?? 0;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Counter#1'),
+        title: const Text('Counter #2'),
       ),
       body: Center(
         child: Column(
           children: [
-            const Text('Counter Screen # 1'),
+            const Text('Counter Screen # 2'),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text('$counter'),
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/counter2');
+                Navigator.pop(context);
               },
-              child: const Text('Next Screen'),
+              child: const Text('Previous Screen'),
             ),
           ],
         ),
