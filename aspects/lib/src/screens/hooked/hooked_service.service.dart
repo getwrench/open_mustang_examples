@@ -12,7 +12,7 @@ import 'package:flutter/foundation.dart';
 import 'package:aspects/src/models/serializers.dart' as app_serializer;
 
 import 'dart:core';
-import 'package:aspects/src/aspects/firebase_aspect.aspect.dart';
+import 'package:aspects/src/aspects/before_aspect.aspect.dart';
 import 'package:aspects/src/aspects/after_aspect.aspect.dart';
 import 'package:aspects/src/aspects/around_aspect.aspect.dart';
 import 'hooked_state.state.dart';
@@ -45,7 +45,7 @@ class HookedService extends $HookedService {
 
   @override
   Future<void> getData({bool showBusy = true}) async {
-    await $$FirebaseAspect().invoke();
+    await $$BeforeAspect().invoke();
 
     await $$AroundAspect().invoke(() async {
       await super.getData(

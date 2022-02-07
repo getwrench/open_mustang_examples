@@ -1,10 +1,9 @@
-
 import 'package:mustang_core/mustang_core.dart';
 
 @aspect
-abstract class $FirebaseAspect {
+abstract class $BeforeAspect {
   @invoke
   Future<void> run() async {
-    print('FirebaseAspect -> run');
+    print('BeforeAspect -> run');
   }
 }

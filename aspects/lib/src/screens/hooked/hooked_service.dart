@@ -1,6 +1,6 @@
 import 'package:aspects/src/aspects/after_aspect.aspect.dart';
 import 'package:aspects/src/aspects/around_aspect.aspect.dart';
-import 'package:aspects/src/aspects/firebase_aspect.aspect.dart';
+import 'package:aspects/src/aspects/before_aspect.aspect.dart';
 import 'package:aspects/src/models/hooked.model.dart';
 import 'package:mustang_core/mustang_core.dart';
 
@@ -21,12 +21,13 @@ abstract class $HookedService {
     return memoizeScreen(getData);
   }
 
-  @Before([firebaseAspect])
+  @Before([beforeAspect])
   @Around(aroundAspect)
   @After([afterAspect])
   Future<void> getData({
     bool showBusy = true,
   }) async {
+    print('source method - start');
     Hooked hooked = WrenchStore.get<Hooked>() ?? Hooked();
     if (showBusy) {
       hooked = hooked.rebuild(
@@ -36,13 +37,13 @@ abstract class $HookedService {
       );
       updateState1(hooked);
     }
-
-    print('getData - before');
     await Future.delayed(const Duration(seconds: 5));
-    print('getData - after');
+
     // Add API calls here, if any
     hooked = hooked.rebuild((b) => b..busy = false);
     updateState1(hooked);
+
+    print('source method - end');
   }
 
   void sampleMethod() {

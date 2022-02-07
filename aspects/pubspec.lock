@@ -315,17 +315,17 @@ packages:
   mustang_codegen:
     dependency: "direct dev"
     description:
-      path: "../../open_mustang/mustang_codegen"
-      relative: true
-    source: path
-    version: "1.0.11"
+      name: mustang_codegen
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.13"
   mustang_core:
     dependency: "direct main"
     description:
-      path: "../../open_mustang/mustang_core"
-      relative: true
-    source: path
-    version: "1.0.4"
+      name: mustang_core
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.6"
   package_config:
     dependency: transitive
     description:
@@ -554,14 +554,14 @@ packages:
       name: win32
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.3.8"
+    version: "2.3.11"
   xdg_directories:
     dependency: transitive
     description:
       name: xdg_directories
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.0"
+    version: "0.2.0+1"
   yaml:
     dependency: transitive
     description:
