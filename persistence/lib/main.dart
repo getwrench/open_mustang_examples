@@ -6,8 +6,6 @@ import 'package:mustang_core/mustang_core.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:persistence/src/models/serializers.dart' as app_serializer;
 import 'package:persistence/src/screens/counter/counter_screen.dart';
-import 'package:persistence/src/utils/connectivity.dart';
-import 'package:persistence/src/utils/routes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,6 +27,7 @@ void main() async {
     app_serializer.json2Type,
     app_serializer.serializerNames,
   );
+
   // Start the app
   runApp(const MyApp());
 }
@@ -39,7 +38,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      navigatorKey: navigationKey,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
