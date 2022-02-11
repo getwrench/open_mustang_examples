@@ -14,6 +14,7 @@ import 'package:aspects/src/models/serializers.dart' as app_serializer;
 import 'dart:core';
 import 'package:aspects/src/aspects/before_aspect.aspect.dart';
 import 'package:aspects/src/aspects/after_aspect.aspect.dart';
+import 'package:aspects/src/aspects/around_aspect.aspect.dart';
 import 'hooked_state.state.dart';
 
 class _$HookedStateCache<T> {
@@ -46,9 +47,11 @@ class HookedService extends $HookedService {
   Future<void> getData({bool showBusy = true}) async {
     await $$BeforeAspect().invoke({'aa': 2, 'bb': 22.2});
 
-    await super.getData(
-      showBusy: showBusy,
-    );
+    await $$AroundAspect().invoke({'aas': null}, () async {
+      await super.getData(
+        showBusy: showBusy,
+      );
+    });
     await $$AfterAspect().invoke({});
   }
 }
