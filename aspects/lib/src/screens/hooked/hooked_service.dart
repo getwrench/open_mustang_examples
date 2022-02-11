@@ -21,9 +21,9 @@ abstract class $HookedService {
     return memoizeScreen(getData);
   }
 
-  @Before([beforeAspect])
-  @Around(aroundAspect)
-  @After([afterAspect])
+  @Before([beforeAspect], args: {'aa': 2, 'bb': 22.2})
+  @After([afterAspect], args: {})
+  @Around(aroundAspect, args: {'aas': null})
   Future<void> getData({
     bool showBusy = true,
   }) async {
