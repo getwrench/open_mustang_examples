@@ -11,7 +11,7 @@ abstract class $CounterService {
   }
 
   Future<void> getInitData() async {
-    Counter counter = WrenchStore.get<Counter>() ?? Counter();
+    Counter counter = MustangStore.get<Counter>() ?? Counter();
     counter = counter.rebuild(
       (b) => b..busy = true,
     );
@@ -19,7 +19,7 @@ abstract class $CounterService {
 
     await Future.delayed(const Duration(seconds: 3));
 
-    counter = WrenchStore.get<Counter>()!;
+    counter = MustangStore.get<Counter>()!;
     counter = counter.rebuild(
       (b) => b..busy = false,
     );
@@ -27,7 +27,7 @@ abstract class $CounterService {
   }
 
   void increment() {
-    Counter counter = WrenchStore.get<Counter>() ?? Counter();
+    Counter counter = MustangStore.get<Counter>() ?? Counter();
     counter = counter.rebuild((b) => b..value = (b.value ?? 0) + 1);
     updateState1(counter);
   }

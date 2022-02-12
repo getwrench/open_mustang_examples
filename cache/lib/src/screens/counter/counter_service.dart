@@ -10,7 +10,7 @@ abstract class $CounterService {
   final String cacheKey = 'cache-example';
 
   Future<void> memoizedGetData() {
-    Counter counter = WrenchStore.get<Counter>() ?? Counter();
+    Counter counter = MustangStore.get<Counter>() ?? Counter();
     if (counter.clearScreenCache) {
       clearMemoizedScreen(reload: false);
       counter = counter.rebuild(
@@ -24,7 +24,7 @@ abstract class $CounterService {
   Future<void> getData({
     bool showBusy = true,
   }) async {
-    Counter counter = WrenchStore.get<Counter>() ?? Counter();
+    Counter counter = MustangStore.get<Counter>() ?? Counter();
     if (showBusy) {
       counter = counter.rebuild(
         (b) => b
@@ -43,18 +43,18 @@ abstract class $CounterService {
   }
 
   void incrementValue() {
-    Counter counter = WrenchStore.get<Counter>() ?? Counter();
+    Counter counter = MustangStore.get<Counter>() ?? Counter();
     counter = counter.rebuild((b) => b..value = (b.value ?? 0) + 1);
     updateState1(counter);
   }
 
   Future<void> cacheCurrentValue() async {
-    Counter counter = WrenchStore.get<Counter>() ?? Counter();
+    Counter counter = MustangStore.get<Counter>() ?? Counter();
     await addObjectToCache(cacheKey, counter);
   }
 
   Future<void> restoreValueFromCache() async {
-    await WrenchCache.restoreObjects(
+    await MustangCache.restoreObjects(
       cacheKey,
       app_serializer.json2Type,
     );
@@ -62,6 +62,6 @@ abstract class $CounterService {
   }
 
   Future<void> clearCachedState() async {
-    await WrenchCache.deleteObjects(cacheKey);
+    await MustangCache.deleteObjects(cacheKey);
   }
 }

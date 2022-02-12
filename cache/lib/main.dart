@@ -12,7 +12,7 @@ void main() async {
 
   // Configure persistence support for the app
   // Caching needs persistence to be enabled.
-  WrenchStore.config(
+  MustangStore.config(
     isPersistent: true,
     storeName: 'mustang-cache1',
   );
@@ -21,10 +21,10 @@ void main() async {
   if (!kIsWeb) {
     dir = await getApplicationDocumentsDirectory();
   }
-  await WrenchStore.initPersistence(dir?.path);
+  await MustangStore.initPersistence(dir?.path);
 
   // Restore persisted state before the app starts
-  await WrenchStore.restoreState(
+  await MustangStore.restoreState(
     app_serializer.json2Type,
     app_serializer.serializerNames,
   );

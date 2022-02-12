@@ -5,9 +5,9 @@ import 'counter_service.service.dart';
 import 'counter_state.dart';
 
 @ScreenService(screenState: $CounterState)
-class CounterService {
+abstract class $CounterService {
   Future<void> memoizedGetData() {
-    Counter counter = WrenchStore.get<Counter>() ?? Counter();
+    Counter counter = MustangStore.get<Counter>() ?? Counter();
     if (counter.clearScreenCache) {
       clearMemoizedScreen(reload: false);
       counter = counter.rebuild(
@@ -21,7 +21,7 @@ class CounterService {
   Future<void> getData({
     bool showBusy = true,
   }) async {
-    Counter counter = WrenchStore.get<Counter>() ?? Counter();
+    Counter counter = MustangStore.get<Counter>() ?? Counter();
     if (showBusy) {
       counter = counter.rebuild(
         (b) => b
@@ -40,7 +40,7 @@ class CounterService {
   }
 
   void increment() {
-    Counter counter = WrenchStore.get<Counter>() ?? Counter();
+    Counter counter = MustangStore.get<Counter>() ?? Counter();
     counter = counter.rebuild((b) => b..value = (b.value ?? 0) + 1);
     updateState1(counter);
   }

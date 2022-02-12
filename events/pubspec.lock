@@ -318,14 +318,14 @@ packages:
       name: mustang_codegen
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.16"
+    version: "1.0.17"
   mustang_core:
     dependency: "direct main"
     description:
       name: mustang_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.7"
+    version: "1.0.8"
   package_config:
     dependency: transitive
     description:

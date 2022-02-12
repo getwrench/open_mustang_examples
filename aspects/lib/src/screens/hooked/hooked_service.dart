@@ -10,7 +10,7 @@ import 'hooked_state.dart';
 @ScreenService(screenState: $HookedState)
 abstract class $HookedService {
   Future<void> memoizedGetData() {
-    Hooked hooked = WrenchStore.get<Hooked>() ?? Hooked();
+    Hooked hooked = MustangStore.get<Hooked>() ?? Hooked();
     if (hooked.clearScreenCache) {
       clearMemoizedScreen(reload: false);
       hooked = hooked.rebuild(
@@ -21,14 +21,14 @@ abstract class $HookedService {
     return memoizeScreen(getData);
   }
 
-  @Before([beforeAspect], args: {'aa': 2, 'bb': 22.2})
+  @Before([beforeAspect], args: {'one': 1, 'two': 2.2})
   @After([afterAspect], args: {})
-  @Around(aroundAspect, args: {'aas': null})
+  @Around(aroundAspect, args: {'three': null})
   Future<void> getData({
     bool showBusy = true,
   }) async {
     print('source method - start');
-    Hooked hooked = WrenchStore.get<Hooked>() ?? Hooked();
+    Hooked hooked = MustangStore.get<Hooked>() ?? Hooked();
     if (showBusy) {
       hooked = hooked.rebuild(
         (b) => b

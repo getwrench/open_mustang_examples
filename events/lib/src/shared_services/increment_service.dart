@@ -6,7 +6,7 @@ import 'package:mustang_core/mustang_core.dart';
 class IncrementService {
   static void start() {
     Timer.periodic(const Duration(seconds: 5), (_) {
-      TimerEvent timerEvent = WrenchStore.get<TimerEvent>() ?? TimerEvent();
+      TimerEvent timerEvent = MustangStore.get<TimerEvent>() ?? TimerEvent();
       timerEvent = timerEvent.rebuild((b) => b..value = (b.value ?? 0) + 1);
       EventStream.pushEvent(timerEvent);
     });
