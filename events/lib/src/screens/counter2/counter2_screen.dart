@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:mustang_core/mustang_widgets.dart';
 
-import 'counter2_service.service.dart';
 import 'counter2_state.state.dart';
 
 class Counter2Screen extends StatelessWidget {
@@ -13,14 +11,10 @@ class Counter2Screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StateProvider<Counter2State>(
-      state: Counter2State(),
+      state: Counter2State(context: context),
       child: Builder(
         builder: (BuildContext context) {
           Counter2State? state = StateConsumer<Counter2State>().of(context);
-          SchedulerBinding.instance?.addPostFrameCallback(
-            (_) => Counter2Service().getData(),
-          );
-
           return _body(state, context);
         },
       ),
