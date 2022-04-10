@@ -2,9 +2,8 @@ import 'package:hello_mustang/src/models/counter.model.dart';
 import 'package:mustang_core/mustang_core.dart';
 
 import 'counter_service.service.dart';
-import 'counter_state.dart';
 
-@ScreenService(screenState: $CounterState)
+@screenService
 abstract class $CounterService {
   Future<void> memoizedGetData() {
     Counter counter = MustangStore.get<Counter>() ?? Counter();

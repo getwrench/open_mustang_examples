@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mustang_core/mustang_widgets.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:mustang_core/mustang_widgets.dart';
 
 import 'hooked_service.service.dart';
 import 'hooked_state.state.dart';
@@ -13,7 +13,7 @@ class HookedScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StateProvider<HookedState>(
-      state: HookedState(),
+      state: HookedState(context: context),
       child: Builder(
         builder: (BuildContext context) {
           HookedState? state = StateConsumer<HookedState>().of(context);

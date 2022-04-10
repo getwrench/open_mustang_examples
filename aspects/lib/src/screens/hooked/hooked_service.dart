@@ -5,9 +5,8 @@ import 'package:aspects/src/models/hooked.model.dart';
 import 'package:mustang_core/mustang_core.dart';
 
 import 'hooked_service.service.dart';
-import 'hooked_state.dart';
 
-@ScreenService(screenState: $HookedState)
+@screenService
 abstract class $HookedService {
   Future<void> memoizedGetData() {
     Hooked hooked = MustangStore.get<Hooked>() ?? Hooked();

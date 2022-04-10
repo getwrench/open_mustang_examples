@@ -2,9 +2,7 @@ import 'package:counter/src/models/counter.model.dart';
 import 'package:counter/src/screens/counter/counter_service.service.dart';
 import 'package:mustang_core/mustang_core.dart';
 
-import 'counter_state.dart';
-
-@ScreenService(screenState: $CounterState)
+@screenService
 abstract class $CounterService {
   Future<void> memoizedGetInitData() {
     return memoizeScreen(getInitData);

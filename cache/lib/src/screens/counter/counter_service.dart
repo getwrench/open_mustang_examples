@@ -3,9 +3,8 @@ import 'package:cache/src/models/serializers.dart' as app_serializer;
 import 'package:mustang_core/mustang_core.dart';
 
 import 'counter_service.service.dart';
-import 'counter_state.dart';
 
-@ScreenService(screenState: $CounterState)
+@screenService
 abstract class $CounterService {
   final String cacheKey = 'cache-example';
 

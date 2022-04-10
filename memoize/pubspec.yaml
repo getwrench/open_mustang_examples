@@ -44,6 +44,12 @@ dev_dependencies:
   build_runner: ^2.1.4
   mustang_codegen: ^1.0.7
 
+#dependency_overrides:
+#  mustang_codegen:
+#    path: ..\..\open_mustang\mustang_codegen
+#  mustang_core:
+#    path: ..\..\open_mustang\mustang_core
+
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your

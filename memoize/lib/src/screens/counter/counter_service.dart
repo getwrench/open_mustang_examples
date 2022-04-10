@@ -2,16 +2,15 @@ import 'package:memoize/src/models/counter.model.dart';
 import 'package:mustang_core/mustang_core.dart';
 
 import 'counter_service.service.dart';
-import 'counter_state.dart';
 
-@ScreenService(screenState: $CounterState)
+@screenService
 abstract class $CounterService {
   Future<void> memoizedGetInitData() {
     return memoizeScreen(getInitData);
   }
 
   Future<void> getInitData() async {
-    Counter counter = WrenchStore.get<Counter>() ?? Counter();
+    Counter counter = MustangStore.get<Counter>() ?? Counter();
     counter = counter.rebuild(
       (b) => b..busy = true,
     );
@@ -30,7 +29,7 @@ abstract class $CounterService {
   }
 
   void increment() {
-    Counter counter = WrenchStore.get<Counter>() ?? Counter();
+    Counter counter = MustangStore.get<Counter>() ?? Counter();
     counter = counter.rebuild((b) => b..value = (b.value ?? 0) + 1);
     updateState1(counter);
   }

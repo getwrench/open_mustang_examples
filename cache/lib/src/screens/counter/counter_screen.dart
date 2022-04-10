@@ -13,7 +13,7 @@ class CounterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StateProvider<CounterState>(
-      state: CounterState(),
+      state: CounterState(context: context),
       child: Builder(
         builder: (BuildContext context) {
           CounterState? state = StateConsumer<CounterState>().of(context);
