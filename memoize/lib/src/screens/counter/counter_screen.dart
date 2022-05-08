@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:mustang_core/mustang_widgets.dart';
+import 'package:mustang_widgets/mustang_widgets.dart';
 
 import 'counter_service.service.dart';
 import 'counter_state.state.dart';
@@ -12,26 +12,20 @@ class CounterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StateProvider<CounterState>(
+    return MustangScreen<CounterState>(
       state: CounterState(context: context),
-      child: Builder(
-        builder: (BuildContext context) {
-          CounterState? state = StateConsumer<CounterState>().of(context);
-          SchedulerBinding.instance?.addPostFrameCallback(
-            (_) => CounterService().memoizedGetInitData(),
+      fetchData: CounterService().memoizedGetInitData,
+      builder: (BuildContext context, CounterState state) {
+        if (state.counter.busy) {
+          return const Scaffold(
+            body: Center(
+              child: CircularProgressIndicator(),
+            ),
           );
+        }
 
-          if (state!.counter.busy) {
-            return const Scaffold(
-              body: Center(
-                child: CircularProgressIndicator(),
-              ),
-            );
-          }
-
-          return _body(state, context);
-        },
-      ),
+        return _body(state, context);
+      },
     );
   }
 
@@ -39,7 +33,7 @@ class CounterScreen extends StatelessWidget {
     int counter = state!.counter.value;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Counter'),
+        title: const Text('Memoize API calls'),
       ),
       body: Center(
         child: Column(

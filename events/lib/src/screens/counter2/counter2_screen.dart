@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mustang_core/mustang_widgets.dart';
+import 'package:mustang_widgets/mustang_widgets.dart';
 
 import 'counter2_state.state.dart';
 
@@ -10,14 +10,11 @@ class Counter2Screen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StateProvider<Counter2State>(
+    return MustangScreen<Counter2State>(
       state: Counter2State(context: context),
-      child: Builder(
-        builder: (BuildContext context) {
-          Counter2State? state = StateConsumer<Counter2State>().of(context);
-          return _body(state, context);
-        },
-      ),
+      builder: (BuildContext context, Counter2State state) {
+        return _body(state, context);
+      },
     );
   }
 
@@ -25,7 +22,7 @@ class Counter2Screen extends StatelessWidget {
     int counter = state?.timerEvent.value ?? 0;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Counter #2'),
+        title: const Text('Events'),
       ),
       body: Center(
         child: Column(

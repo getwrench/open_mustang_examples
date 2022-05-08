@@ -11,7 +11,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   // Configure persistence support for the app
-  WrenchStore.config(
+  MustangStore.config(
     isPersistent: true,
     storeName: 'mustang-persistence',
   );
@@ -20,10 +20,10 @@ void main() async {
   if (!kIsWeb) {
     dir = await getApplicationDocumentsDirectory();
   }
-  await WrenchStore.initPersistence(dir?.path);
+  await MustangStore.initPersistence(dir?.path);
 
   // Restore persisted state before the app starts
-  await WrenchStore.restoreState(
+  await MustangStore.restoreState(
     app_serializer.json2Type,
     app_serializer.serializerNames,
   );

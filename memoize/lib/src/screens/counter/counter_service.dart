@@ -16,16 +16,12 @@ abstract class $CounterService {
     );
     updateState1(counter);
 
-    // Add API calls here, if any
+    // Mimicking API call
     await Future.delayed(const Duration(seconds: 4));
     counter = counter.rebuild(
       (b) => b..busy = false,
     );
     updateState1(counter);
-  }
-
-  void clearCacheAndReload({bool reload = true}) {
-    clearMemoizedScreen(reload: reload);
   }
 
   void increment() {

@@ -2,23 +2,13 @@ import 'package:aspects/src/aspects/after_aspect.aspect.dart';
 import 'package:aspects/src/aspects/around_aspect.aspect.dart';
 import 'package:aspects/src/aspects/before_aspect.aspect.dart';
 import 'package:aspects/src/models/hooked.model.dart';
+import 'package:flutter/foundation.dart';
 import 'package:mustang_core/mustang_core.dart';
 
 import 'hooked_service.service.dart';
 
 @screenService
 abstract class $HookedService {
-  Future<void> memoizedGetData() {
-    Hooked hooked = MustangStore.get<Hooked>() ?? Hooked();
-    if (hooked.clearScreenCache) {
-      clearMemoizedScreen(reload: false);
-      hooked = hooked.rebuild(
-        (b) => b..clearScreenCache = false,
-      );
-      updateState1(hooked, reload: false);
-    }
-    return memoizeScreen(getData);
-  }
 
   @Before([beforeAspect], args: {'one': 1, 'two': 2.2})
   @After([afterAspect], args: {})
@@ -26,7 +16,9 @@ abstract class $HookedService {
   Future<void> getData({
     bool showBusy = true,
   }) async {
-    print('source method - start');
+    if (kDebugMode) {
+      print('Annotated method : Start');
+    }
     Hooked hooked = MustangStore.get<Hooked>() ?? Hooked();
     if (showBusy) {
       hooked = hooked.rebuild(
@@ -42,14 +34,14 @@ abstract class $HookedService {
     hooked = hooked.rebuild((b) => b..busy = false);
     updateState1(hooked);
 
-    print('source method - end');
+    if (kDebugMode) {
+      print('Annotated method : End');
+    }
   }
 
-  void sampleMethod() {
-    print('normal method');
-  }
-
-  void clearCacheAndReload({bool reload = true}) {
-    clearMemoizedScreen(reload: reload);
+  void noAspectMethod() {
+    if (kDebugMode) {
+      print('Normal method');
+    }
   }
 }

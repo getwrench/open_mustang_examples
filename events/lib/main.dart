@@ -2,7 +2,7 @@ import 'package:events/src/screens/counter/counter_screen.dart';
 import 'package:events/src/screens/counter2/counter2_screen.dart';
 import 'package:events/src/shared_services/increment_service.dart';
 import 'package:flutter/material.dart';
-import 'package:mustang_core/mustang_widgets.dart';
+import 'package:mustang_widgets/mustang_widgets.dart';
 
 void main() {
   IncrementService.start();
