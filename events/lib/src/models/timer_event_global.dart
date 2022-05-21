@@ -1,7 +1,8 @@
 import 'package:mustang_core/mustang_core.dart';
 
 @appModel
-abstract class $Counter2 {
+@appEventGlobal
+abstract class $TimerEventGlobal {
   @InitField(false)
   @SerializeField(false)
   late bool busy;
@@ -9,8 +10,10 @@ abstract class $Counter2 {
   @InitField('')
   @SerializeField(false)
   late String errorMsg;
-  
+
   @InitField(false)
   late bool clearScreenCache;
+
+  @InitField(0)
+  late int value;
 }
-    
