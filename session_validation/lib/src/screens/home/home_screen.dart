@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
       state: HomeState(context: context),
       builder: (BuildContext context, HomeState state) {
         return RouteRedirect(
-          test: () => !state.login.loggedIn,
+          redirect: () => !state.login.loggedIn,
           targetRouteName: '/login',
           child: _body(state, context),
         );
